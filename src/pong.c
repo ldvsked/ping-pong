@@ -45,7 +45,7 @@ int ball_pol_new_x(int x, int pol, int y_rak_l, int y_rak_r, int y_ball) {
 
 int ball_pol_new_y(int y, int pol) {
     int result = pol;
-    if (y == 23) {
+    if (y == 25) {
         result = -1;
     }
     if (y == 1) {
@@ -79,17 +79,19 @@ int otrisovka(int x_ball, int y_ball, int y_raketka_left, int y_raketka_right, i
     int x_raketka_left = 10;
     int x_raketka_right = 70;
     int x_centre = 40;
-    for (int y = 24; y >= 0; y--) {
+    for (int y = 26; y >= 0; y--) {
         for (int x = 0; x < 80; x++) {
             // границы
             if (flag == 1 && (x == 2 && y == 22)) {
                 printf("%d", first_score);
             } else if (flag == 1 && (x == 77 && y == 22)) {
                 printf("%d", second_score);
-            } else if (y == 24 || y == 0) {
+            } else if (y == 26) {
                 printf("_");
             } else if (x == 0 || x == 79) {
                 printf("|");
+            } else if (y == 0) {
+                printf("‾");
             }
             // ракетка левая
             else if (x == x_raketka_left &&
@@ -102,7 +104,7 @@ int otrisovka(int x_ball, int y_ball, int y_raketka_left, int y_raketka_right, i
             }
             // мяч
             else if (x == x_ball && y == y_ball) {
-                printf("o");
+                printf("©");
             } else if (x == x_centre) {
                 printf(":");
             }
@@ -137,22 +139,16 @@ int right_raketka(int y, char moveRight) {
 }
 
 int main() {
-    int x_ball;
-    int y_ball;
-    int y_raketka_left;
-    int y_raketka_right;
-    int pol_x;
-    int pol_y;
     int left_score = 0;
     int right_score = 0;
     while (left_score != 21 && right_score != 21) {
         int flag = 0;
-        x_ball = 40;
-        y_ball = 12;
-        y_raketka_left = 12;
-        y_raketka_right = 12;
-        pol_x = 1;
-        pol_y = 1;
+        int x_ball = 40;
+        int y_ball = 13;
+        int y_raketka_left = 13;
+        int y_raketka_right = 13;
+        int pol_x = 1;
+        int pol_y = 1;
         int first_step = 1;
         otrisovka(x_ball, y_ball, y_raketka_left, y_raketka_right, first_step, left_score, right_score);
         while (flag == 0) {

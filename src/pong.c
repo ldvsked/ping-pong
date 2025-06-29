@@ -119,9 +119,9 @@ int otrisovka(int x_ball, int y_ball, int y_raketka_left, int y_raketka_right, i
 
 int left_raketka(int y, char moveLeft) {
     int result = y;
-    if (moveLeft == 'a' && (result + 1 <= 22)) {
+    if (moveLeft == 'a' && (result + 1 <= 24)) {
         result++;
-    } else if (moveLeft == 'z' && (result - 1 >= 1)) {
+    } else if (moveLeft == 'z' && (result - 1 >= 2)) {
         result--;
     }
     // scanf("\f")
@@ -130,9 +130,9 @@ int left_raketka(int y, char moveLeft) {
 
 int right_raketka(int y, char moveRight) {
     int result = y;
-    if (moveRight == 'k' && (result + 1 <= 22)) {
+    if (moveRight == 'k' && (result + 1 <= 24)) {
         result++;
-    } else if (moveRight == 'm' && (result - 1 >= 1)) {
+    } else if (moveRight == 'm' && (result - 1 >= 2)) {
         result--;
     }
     return result;
